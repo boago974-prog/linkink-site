@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artists — LINKINK</title>
+<meta name="description" content="Browse art from every artist LINKINK has featured. Like, comment and share.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">LINKINK</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">This Week</a>
+      <a href="spotlight.html">Spotlight</a>
+      <a href="artists.html" aria-current="page">Artists</a>
+      <a href="about.html">About</a>
+      <a href="subscribe.html">Subscribe</a>
+    </nav>
+    <a href="subscribe.html" class="btn btn--subscribe">Subscribe</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== FEED HEAD + SEARCH ===== -->
+  <section class="feed-head">
+    <div class="wrap">
+      <span class="eyebrow">Artists</span>
+      <h1>Scroll the <em>feed.</em></h1>
+      <p>Every artist we've featured, in one place. Browse the work, follow the ones you like, and leave a note — the artists read them.</p>
+
+      <form class="search-bar" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="M20 20l-3.5-3.5"/>
+        </svg>
+        <label class="sr-only" for="artistSearch">Search artists</label>
+        <input id="artistSearch" type="search" placeholder="Search by name, handle, city or discipline…" autocomplete="off">
+        <button type="button" class="search-clear" id="searchClear" aria-label="Clear search" hidden>×</button>
+      </form>
+
+      <p class="search-status" id="searchStatus" role="status">Showing all 7 posts</p>
+    </div>
+  </section>
+
+  <!-- ===== FEED ===== -->
+  <section class="feed">
+    <div class="wrap">
+      <div class="feed-column" id="feedColumn">
+
+        <!-- ---------- POST 1 : biedoesart SPEEDPAINT VIDEO ---------- -->
+        <article class="feed-post feed-post--video" id="post-biedoesart-video"
+                 data-artist="biedoesart Gaborone oc painting speedpaint video">
+          <header class="post-head">
+            <span class="avatar avatar--rust" aria-hidden="true">BA</span>
+            <div class="post-id">
+              <a href="spotlight.html" class="post-name">biedoesart</a>
+              <span class="post-meta">Gaborone · Week 01 · Speedpaint</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <div class="post-video">
+            <video id="speedpaint-01"
+                   controls
+                   playsinline
+                   preload="metadata"
+                   poster="images/video-poster.jpg">
+              <source src="images/speedpaint.mp4" type="video/mp4">
+              Sorry — your browser doesn't support embedded video.
+            </video>
+          </div>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="4218" aria-pressed="false" aria-label="Like this video">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this video">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this video">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>4,218</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="spotlight.html" class="post-caption-name">biedoesart</a>
+            Full speedpaint for the Week 01 sketchbook page. Sped up to fit 1 minute, hope you enjoy 💓.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>sofie</strong> wow this is lit bro.</li>
+            <li><strong>will</strong> That colour blocking changed how I think about layering. Stealing that.</li>
+            <li><strong>sam yang</strong> like the giant statue with the sowrd, thats really good composition.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="176">View all 176 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-video">Add a comment</label>
+            <input id="comment-video" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 2 : biedoesart sketchbook ---------- -->
+        <article class="feed-post" id="post-biedoesart"
+                 data-artist="biedoesart biedoes art Gaborone single line drawing artist of the week">
+          <header class="post-head">
+            <span class="avatar avatar--rust" aria-hidden="true">BA</span>
+            <div class="post-id">
+              <a href="spotlight.html" class="post-name">biedoesart</a>
+              <span class="post-meta">Gaborone · Week 01 · Artist of the Week</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="biedoesart — OC illustrarion">
+            <img src="images/biedoesart-feature-01.png"" alt="digital drawing by biedoesart">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="1284" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>1,284</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="spotlight.html" class="post-caption-name">biedoesart</a>
+            Week 01 — a page that took eleven attempts and one minute. Some drawings
+            only happen once you stop trying to make them good.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>Kiren</strong> The third one is my favourite. That half-finished hand makes the whole pose work.</li>
+            <li><strong>Poopgein</strong> That answer about colour coming first for scenes is exactly what I needed today.</li>
+            <li class="is-more"><strong>tom.ruiz</strong> Do you ever go back into old sketchbooks, or are they sealed off?</li>
+
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="42">View all 42 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-1">Add a comment</label>
+            <input id="comment-1" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 3 : haha ---------- -->
+        <article class="feed-post" id="post-haha"
+                 data-artist="haha skin tone rendering">
+          <header class="post-head">
+            <span class="avatar avatar--mustard" aria-hidden="true">HH</span>
+            <div class="post-id">
+              <a href="#" class="post-name">haha</a>
+              <span class="post-meta">haha</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="learning new techniques">
+            <img src="images/feed-02.jpg" alt="Trying somthing new">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="842" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>842</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="#" class="post-caption-name">haha</a>
+            New illustration i worked on trying to render skin differently.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>hanaiwata</strong> The skin tone, you work wonders.</li>
+            <li><strong>mara.k</strong> i wanna render like that.</li>
+            <li class="is-more"><strong>biedoesart</strong> whoa ill be trying that too.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="28">View all 28 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-2">Add a comment</label>
+            <input id="comment-2" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 4 : Sam Yang ---------- -->
+        <article class="feed-post" id="post-Sam Yang"
+                 data-artist="SamDoesArts">
+          <header class="post-head">
+            <span class="avatar" aria-hidden="true">SY</span>
+            <div class="post-id">
+              <a href="#" class="post-name">Sam Yang</a>
+              <span class="post-meta">SamDoesArts</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="sucker for armor">
+            <img src="images/feed-03.jpg" alt="shinny armor by SamDoesArts">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="617" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>617</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="#" class="post-caption-name">Sam Yang</a>
+            small artist trying smthn new.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>mosh</strong> Keep it, you already fire though.</li>
+            <li><strong>biedoesart</strong> unc at it again 'small artist' 😭</li>
+            <li class="is-more"><strong>Clernarts</strong> No way unc is a new artist😭😂💓💓💓.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="19">View all 19 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-3">Add a comment</label>
+            <input id="comment-3" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 5 : Danica Johnson ---------- -->
+        <article class="feed-post" id="post-Danica Johnson"
+                 data-artist="Danica Johnson kyoto london reportage drawing">
+          <header class="post-head">
+            <span class="avatar avatar--mustard" aria-hidden="true">DJ</span>
+            <div class="post-id">
+              <a href="#" class="post-name">Danica</a>
+              <span class="post-meta">Kyoto / London · Reportage</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="Dancia — drawn on the 07:42 from Kyoto">
+            <img src="images/feed-04.jpg" alt="Reportage drawing by Danica">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="2310" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>2,310</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="#" class="post-caption-name">Danica</a>
+            Drawn on the 07:42 from Kyoto. The woman opposite me had the best hands
+            I've seen all year. Four minutes, no second chances.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>biedoesart</strong> Four minutes.what, how just how is that possible that's insane🤯.</li>
+            <li><strong>tom.ruiz</strong> The hands are incredible. So much said with so few lines.</li>
+            <li class="is-more"><strong>studio_ines</strong> This is why I keep a pencil in my bag at all times.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="87">View all 87 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-4">Add a comment</label>
+            <input id="comment-4" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 6 : Drawinglikeasir ---------- -->
+        <article class="feed-post" id="post-Marcel"
+                 data-artist="Perfect pencil on paper">
+          <header class="post-head">
+            <span class="avatar" aria-hidden="true">ML</span>
+            <div class="post-id">
+              <a href="#" class="post-name">Marcel</a>
+              <span class="post-meta">Drawinglikeasir</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="Marcel- pencil on paper">
+            <img src="images/feed-05.webp" alt="Pencil drawing by Marcel">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="456" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>456</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="#" class="post-caption-name">Marcel</a>
+            Six pencils down to stubs. Been so long since i touched a paper.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>hima</strong> The best drawings always seem to eat the most pencils.</li>
+            <li><strong>Ben</strong> bro been waiting for your youtube toturs.</li>
+            <li class="is-more"><strong>hillary</strong> you really know your way through a pencil wow.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="14">View all 14 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-5">Add a comment</label>
+            <input id="comment-5" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+        <!-- ---------- POST 7 : so kimura ---------- -->
+        <article class="feed-post" id="so kimura"
+                 data-artist="so kimura painting with acrylic markers.">
+          <header class="post-head">
+            <span class="avatar" aria-hidden="true">SK</span>
+            <div class="post-id">
+              <a href="#" class="post-name">so kimura</a>
+              <span class="post-meta">London · Single-line</span>
+            </div>
+            <button type="button" class="follow-btn js-follow" aria-pressed="false">Follow</button>
+          </header>
+
+          <button type="button" class="post-art"
+                  data-lightbox="feed" data-caption="so kimura — one stroke, no lift, day 4,027">
+            <img src="images/feed-06.jpg" alt="acrylic painting by so kimura">
+          </button>
+
+          <div class="post-actions">
+            <button type="button" class="post-action js-like" data-likes="3908" aria-pressed="false" aria-label="Like this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action js-focus-comment" aria-label="Comment on this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-8.4h.6a8.4 8.4 0 0 1 8 8.3z"/>
+              </svg>
+            </button>
+            <button type="button" class="post-action post-share js-share" aria-label="Share this post">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/>
+                <path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="post-likes js-likes-line"><strong>3,908</strong> likes</p>
+
+          <p class="post-caption">
+            <a href="#" class="post-caption-name">so kimura</a>
+            first time using acrylic markers, seems once you know colur theory you always get things right.
+          </p>
+
+          <ul class="feed-comments js-comments">
+            <li><strong>Mark</strong> wow you really talented.</li>
+            <li><strong>tony</strong> this is cake to my eyes.</li>
+            <li class="is-more"><strong>hanaiwata</strong> jaw dropping.</li>
+          </ul>
+          <button type="button" class="view-all js-view-all" data-count="112">View all 112 comments</button>
+
+          <form class="comment-form comment-form--feed js-comment-form">
+            <label class="sr-only" for="comment-6">Add a comment</label>
+            <input id="comment-6" class="js-comment-input" type="text" placeholder="Add a comment…" autocomplete="off" required>
+            <button type="submit" class="btn btn--sm">Post</button>
+          </form>
+        </article>
+
+      </div>
+
+      <!-- empty state -->
+      <div class="feed-empty" id="feedEmpty" hidden>
+        <p class="feed-empty-title">No artists match that search.</p>
+        <p>Try a name, a handle, a city, or a discipline — or clear the search to see everyone.</p>
+        <button type="button" class="btn btn--ghost" id="feedEmptyClear">Clear search</button>
+      </div>
+
+      <p class="feed-end">You're all caught up. New art every Sunday.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="lightbox-close" id="lbClose" type="button" aria-label="Close viewer">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev" type="button" aria-label="Previous image" hidden>‹</button>
+  <button class="lightbox-nav lightbox-next" id="lbNext" type="button" aria-label="Next image" hidden>›</button>
+
+  <figure class="lightbox-stage">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lightbox-caption">
+      <span id="lbCounter">1 / 1</span>
+      <span id="lbCaption"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">LINKINK</a>
+        <p>A weekly illustration magazine. One artist, every Sunday.</p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="index.html">This week</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="artists.html">Artists</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Magazine</h4>
+        <ul>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="#">Submit your work</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Are.na</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LINKINK. All illustrations © their authors.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- mobile menu ---------- */
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+  });
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = 'Menu';
+    }
+  });
+
+  /* ---------- toast ---------- */
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+  }
+
+  /* ---------- search / filter ---------- */
+  const searchInput = document.getElementById('artistSearch');
+  const searchClear = document.getElementById('searchClear');
+  const searchStatus = document.getElementById('searchStatus');
+  const feedEmpty = document.getElementById('feedEmpty');
+  const feedEmptyClear = document.getElementById('feedEmptyClear');
+  const feedPosts = Array.from(document.querySelectorAll('.feed-post'));
+
+  function applyFilter() {
+    const raw = searchInput.value.trim();
+    const q = raw.toLowerCase();
+    let shown = 0;
+
+    feedPosts.forEach(post => {
+      const hay = (post.dataset.artist || '').toLowerCase();
+      const match = !q || hay.includes(q);
+      post.hidden = !match;
+      if (!match) {
+        post.querySelectorAll('video').forEach(v => { if (!v.paused) v.pause(); });
+      }
+      if (match) shown++;
+    });
+
+    const label = shown === 1 ? 'post' : 'posts';
+    searchStatus.textContent = q
+      ? shown + ' ' + label + ' matching "' + raw + '"'
+      : 'Showing all ' + feedPosts.length + ' posts';
+
+    feedEmpty.hidden = shown !== 0;
+    searchClear.hidden = q.length === 0;
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    applyFilter();
+    searchInput.focus();
+  });
+  feedEmptyClear.addEventListener('click', () => {
+    searchInput.value = '';
+    applyFilter();
+    searchInput.focus();
+  });
+  applyFilter();
+
+  /* ---------- feed interactions ---------- */
+  const feedColumn = document.getElementById('feedColumn');
+
+  feedColumn.addEventListener('click', (e) => {
+
+    const follow = e.target.closest('.js-follow');
+    if (follow) {
+      const on = follow.classList.toggle('is-following');
+      follow.setAttribute('aria-pressed', String(on));
+      follow.textContent = on ? 'Following' : 'Follow';
+      showToast(on ? 'Following this artist' : 'Unfollowed');
+      return;
+    }
+
+    const like = e.target.closest('.js-like');
+    if (like) {
+      const post = like.closest('.feed-post');
+      const on = !like.classList.contains('is-liked');
+      like.classList.toggle('is-liked', on);
+      like.setAttribute('aria-pressed', String(on));
+
+      const base = Number(like.dataset.likes) || 0;
+      const total = base + (on ? 1 : 0);
+      const line = post.querySelector('.js-likes-line');
+      line.innerHTML = '<strong>' + total.toLocaleString('en-GB') + '</strong> likes';
+      return;
+    }
+
+    const focusComment = e.target.closest('.js-focus-comment');
+    if (focusComment) {
+      const post = focusComment.closest('.feed-post');
+      const input = post.querySelector('.js-comment-input');
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      input.focus({ preventScroll: true });
+      return;
+    }
+
+    const share = e.target.closest('.js-share');
+    if (share) {
+      const post = share.closest('.feed-post');
+      const url = location.origin + location.pathname + '#' + post.id;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url)
+          .then(() => showToast('Link copied to clipboard'))
+          .catch(() => showToast('Could not copy link'));
+      } else {
+        showToast('Could not copy link');
+      }
+      return;
+    }
+
+    const viewAll = e.target.closest('.js-view-all');
+    if (viewAll) {
+      const post = viewAll.closest('.feed-post');
+      post.querySelectorAll('.feed-comments .is-more').forEach(li => li.classList.remove('is-more'));
+      viewAll.hidden = true;
+      return;
+    }
+  });
+
+  /* ---------- post comment ---------- */
+  feedColumn.addEventListener('submit', (e) => {
+    const form = e.target.closest('.js-comment-form');
+    if (!form) return;
+    e.preventDefault();
+
+    const input = form.querySelector('.js-comment-input');
+    const text = input.value.trim();
+    if (!text) return;
+
+    const post = form.closest('.feed-post');
+    const list = post.querySelector('.js-comments');
+
+    const li = document.createElement('li');
+    const strong = document.createElement('strong');
+    strong.textContent = 'you';
+    li.append(strong, document.createTextNode(' ' + text));
+    list.appendChild(li);
+
+    input.value = '';
+
+    const viewAll = post.querySelector('.js-view-all');
+    if (viewAll && !viewAll.hidden) {
+      const n = (Number(viewAll.dataset.count) || 0) + 1;
+      viewAll.dataset.count = String(n);
+      viewAll.textContent = 'View all ' + n + ' comments';
+    }
+
+    showToast('Comment posted');
+  });
+
+  /* ---------- video chapters (scoped per video post) ---------- */
+  document.querySelectorAll('.feed-post--video').forEach(post => {
+    const video = post.querySelector('video');
+    const chapters = Array.from(post.querySelectorAll('.js-chapter'));
+    if (!video || !chapters.length) return;
+
+    function setActive(t) {
+      let idx = 0;
+      chapters.forEach((ch, i) => {
+        if (t >= Number(ch.dataset.time)) idx = i;
+      });
+      chapters.forEach((ch, i) => ch.classList.toggle('is-active', i === idx));
+    }
+
+    chapters.forEach(ch => {
+      ch.addEventListener('click', () => {
+        const t = Number(ch.dataset.time);
+        const seek = () => {
+          try { video.currentTime = t; } catch (_) {}
+          if (video.paused) {
+            const p = video.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+          }
+          setActive(t);
+        };
+        if (video.readyState >= 1) seek();
+        else video.addEventListener('loadedmetadata', seek, { once: true });
+      });
+    });
+
+    video.addEventListener('timeupdate', () => setActive(video.currentTime));
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && !video.paused) video.pause();
+    });
+  });
+
+  /* ---------- lightbox ---------- */
+  (function () {
+    const triggers = Array.from(document.querySelectorAll('[data-lightbox]'));
+    if (!triggers.length) return;
+
+    const lb       = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lbImg');
+    const lbCap    = document.getElementById('lbCaption');
+    const lbCount  = document.getElementById('lbCounter');
+    const btnClose = document.getElementById('lbClose');
+    const btnPrev  = document.getElementById('lbPrev');
+    const btnNext  = document.getElementById('lbNext');
+
+    let group = null;
+    let index = 0;
+    let lastFocused = null;
+    let touchX = null;
+
+    function itemsOf(g) {
+      return triggers.filter(t => t.dataset.lightbox === g && t.offsetParent !== null);
+    }
+
+    function render() {
+      const items = itemsOf(group);
+      if (!items.length) return;
+      index = (index + items.length) % items.length;
+
+      const trigger = items[index];
+      const img = trigger.querySelector('img');
+
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      lbCap.textContent = trigger.dataset.caption || img.alt || '';
+      lbCount.textContent = (index + 1) + ' / ' + items.length;
+
+      const multi = items.length > 1;
+      btnPrev.hidden = !multi;
+      btnNext.hidden = !multi;
+    }
+
+    function open(trigger) {
+      group = trigger.dataset.lightbox;
+      const items = itemsOf(group);
+      index = Math.max(0, items.indexOf(trigger));
+
+      lastFocused = document.activeElement;
+      lb.hidden = false;
+      document.body.classList.add('no-scroll');
+      render();
+      btnClose.focus();
+    }
+
+    function close() {
+      lb.hidden = true;
+      document.body.classList.remove('no-scroll');
+      lbImg.removeAttribute('src');
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    function step(dir) { index += dir; render(); }
+
+    triggers.forEach(t => t.addEventListener('click', () => open(t)));
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', () => step(-1));
+    btnNext.addEventListener('click', () => step(1));
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb || e.target.classList.contains('lightbox-stage')) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault(); close();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault(); step(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault(); step(-1);
+      } else if (e.key === 'Tab') {
+        const f = [btnClose];
+        if (!btnPrev.hidden) f.unshift(btnPrev);
+        if (!btnNext.hidden) f.push(btnNext);
+        const first = f[0];
+        const last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      }
+    });
+
+    lb.addEventListener('touchstart', (e) => {
+      touchX = e.touches[0].clientX;
+    }, { passive: true });
+
+    lb.addEventListener('touchend', (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    });
+  })();
+</script>
+
+</body>
+</html>

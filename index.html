@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LINKINK — Artist of the Week</title>
+<meta name="description" content="LINKINK is a weekly illustration magazine. Every Sunday we feature one artist, in depth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ===== HOME-ONLY STYLES ===== */
+
+  /* --- Weekly hero --- */
+  .weekly {
+    padding: 4rem 0 4.5rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .weekly-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+  }
+  .weekly-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+  .weekly-label::before {
+    content: "";
+    width: 10px; height: 10px;
+    background: var(--rust);
+    border-radius: 50%;
+    box-shadow: 14px 0 0 var(--mustard);
+    margin-right: 14px;
+  }
+  .drop-note {
+    font-size: .78rem;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+  }
+  .drop-note strong { color: var(--ink); font-weight: 600; }
+
+  .weekly-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .artist-kicker {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .9rem;
+  }
+  .artist-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    line-height: .92;
+    letter-spacing: -.04em;
+    margin: 0 0 1.3rem;
+  }
+  .artist-name em {
+    font-style: italic;
+    color: var(--rust);
+  }
+  .artist-statement {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    line-height: 1.4;
+    letter-spacing: -.01em;
+    margin: 0 0 1.6rem;
+    max-width: 44ch;
+  }
+  .artist-bio {
+    font-size: .96rem;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 2rem;
+  }
+
+  .artist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .artist-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .artist-links a {
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--line);
+    padding-bottom: .2rem;
+    transition: color .2s, border-color .2s;
+  }
+  .artist-links a:hover { color: var(--rust); border-color: var(--rust); }
+
+  .feature-art {
+    position: relative;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    box-shadow: 16px 16px 0 rgba(23,21,18,.09);
+    margin: 0;
+  }
+  .feature-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.2,.8,.2,1);
+  }
+  .feature-art:hover img { transform: scale(1.04); }
+  .feature-tag {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 2;
+    background: var(--paper);
+    border-right: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    font-size: .63rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: .45rem .85rem;
+  }
+
+  /* --- How it works strip --- */
+  .how {
+    padding: 4rem 0;
+    border-bottom: 1.5px solid var(--line);
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 2rem;
+  }
+  .how-step .n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--rust);
+    display: block;
+    margin-bottom: .8rem;
+  }
+  .how-step h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -.015em;
+    margin: 0 0 .55rem;
+  }
+  .how-step p {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--muted);
+    max-width: 34ch;
+  }
+
+  /* --- Past weeks --- */
+  .past-weeks { padding: 4.5rem 0; scroll-margin-top: 5rem; }
+  .week-card {
+    display: grid;
+    gap: .85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .week-card .shot {
+    aspect-ratio: 4 / 5;
+    border: 1.5px solid var(--ink);
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .week-card .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .week-card:hover .shot img { transform: scale(1.05); }
+  .week-card .week-no {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+  .week-card h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    margin: 0;
+    transition: color .2s;
+  }
+  .week-card:hover h3 { color: var(--rust); }
+  .week-card .date {
+    font-size: .78rem;
+    color: var(--muted);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 900px) {
+    .weekly-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .feature-art { aspect-ratio: 4 / 5; box-shadow: 12px 12px 0 rgba(23,21,18,.09); }
+    .how-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .weekly { padding: 2.8rem 0 3.2rem; }
+    .weekly-top { gap: .8rem; }
+    .artist-name { font-size: clamp(2.6rem, 14vw, 4rem); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">LINKINK</a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html" aria-current="page">This Week</a>
+      <a href="spotlight.html">Spotlight</a>
+      <a href="artists.html">Artists</a>
+      <a href="about.html">About</a>
+      <a href="subscribe.html">Subscribe</a>
+    </nav>
+
+    <a href="subscribe.html" class="btn btn--subscribe">Subscribe</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== ARTIST OF THE WEEK ===== -->
+  <section class="weekly">
+    <div class="wrap">
+
+      <div class="weekly-top">
+        <span class="weekly-label">Artist of the Week</span>
+        <span class="drop-note">
+          <strong>Drops every Sunday</strong> · Week 01
+        </span>
+      </div>
+
+      <div class="weekly-grid">
+
+        <div>
+          <p class="artist-kicker">Featured illustrator</p>
+
+          <h1 class="artist-name">biedoes<em>art</em></h1>
+
+          <p class="artist-statement">
+            Vivid character work and loose, expressive line — drawing that
+            feels like it was made in one breath.
+          </p>
+
+          <p class="artist-bio">
+            biedoesart is a to be editesd
+          </p>
+
+          <div class="artist-actions">
+            <a href="artists.html" class="btn">Read the feature</a>
+            <a href="#past-weeks" class="btn btn--ghost">See past weeks</a>
+          </div>
+
+          <div class="artist-links">
+            <a href="#">Instagram</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Shop</a>
+          </div>
+        </div>
+
+        <figure class="feature-art">
+          <span class="feature-tag">Week 01 · biedoesart</span>
+          <img src="images/biedoesart-feature.png" alt="Featured artwork by biedoesart">
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW THE MAGAZINE WORKS ===== -->
+  <section class="how">
+    <div class="wrap">
+      <div class="how-grid">
+
+        <div class="how-step">
+          <span class="n">01</span>
+          <h3>One artist, every Sunday</h3>
+          <p>No round-ups, no lists. A single illustrator gets the whole week.</p>
+        </div>
+
+        <div class="how-step">
+          <span class="n">02</span>
+          <h3>Process, not just pictures</h3>
+          <p>Sketchbooks, failures, tools, and the decisions behind the work.</p>
+        </div>
+
+        <div class="how-step">
+          <span class="n">03</span>
+          <h3>Then it stays online</h3>
+          <p>Every feature stays up. Browse them by artist or by week.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAST WEEKS ===== -->
+  <section class="past-weeks" id="past-weeks">
+    <div class="wrap">
+
+      <div class="section-head">
+        <h2><span class="num">→</span> Past Weeks</h2>
+        <p><a href="artists.html" style="text-decoration:underline">Browse all artists</a></p>
+      </div>
+
+      <div class="grid-3">
+
+        <a href="#" class="week-card">
+          <div class="shot"><img src="images/artist-week-02.jpg" alt="Artwork by last week's featured artist"></div>
+          <span class="week-no">Week 02</span>
+          <h3>Tony Tsang</h3>
+          <span class="date">Sunday 19 October 2026</span>
+        </a>
+
+        <a href="#" class="week-card">
+          <div class="shot"><img src="images/artist-week-03.jpg" alt="Artwork by the week 03 artist"></div>
+          <span class="week-no">Week 03</span>
+          <h3>SamDoesArts</h3>
+          <span class="date">Sunday 12 October 2026</span>
+        </a>
+
+        <a href="#" class="week-card">
+          <div class="shot"><img src="images/artist-week-04.jpg" alt="Artwork by the week 04 artist"></div>
+          <span class="week-no">Week 04</span>
+          <h3>Su Jian</h3>
+          <span class="date">Sunday 5 October 2026</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="wrap newsletter-inner">
+      <div>
+        <h2>Never miss a Sunday.</h2>
+        <p>One email each week when the new artist drops. No digest, no noise — just the feature.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="event.preventDefault(); this.reset(); this.querySelector('input').placeholder='Thanks — see you Sunday!';">
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" type="email" placeholder="you@studio.com" required>
+          <button type="submit" class="btn">Notify me</button>
+        </form>
+        <p class="nl-note">Joined by readers who actually open it. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">LINKINK</a>
+        <p>A weekly illustration magazine. One artist, every Sunday.</p>
+      </div>
+
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="index.html">This week</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="artists.html">Artists</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Magazine</h4>
+        <ul>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="about.html">Submit your work</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Are.na</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 LINKINK. All illustrations © their authors.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+  });
+
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = 'Menu';
+    }
+  });
+</script>
+
+</body>
+</html>

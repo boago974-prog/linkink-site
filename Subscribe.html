@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subscribe — LINKINK</title>
+<meta name="description" content="Subscribe to LINKINK. One artist, every Sunday — in print and digital, or free by email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ============================================================
+     SUBSCRIBE PAGE — page-scoped (sb-)
+     ============================================================ */
+
+  /* ---- Hero + billing toggle ---- */
+  .sb-hero {
+    padding: 3.8rem 0 2.4rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .sb-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    font-size: .71rem;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+  }
+  .sb-eyebrow::before {
+    content: "";
+    width: 34px; height: 1.5px;
+    background: var(--rust);
+  }
+  .sb-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 6.4vw, 4.8rem);
+    line-height: .94;
+    letter-spacing: -.04em;
+    margin: 0 0 1.2rem;
+    max-width: 18ch;
+  }
+  .sb-title em { font-style: italic; color: var(--rust); }
+  .sb-lede {
+    max-width: 54ch;
+    margin: 0 0 2rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  .sb-toggle {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 6px 6px 0 rgba(23,21,18,.09);
+  }
+  .sb-toggle button {
+    font-family: inherit;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    padding: .7rem 1.15rem;
+    background: transparent;
+    color: var(--ink);
+    border: 0;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    white-space: nowrap;
+  }
+  .sb-toggle button + button { border-left: 1.5px solid var(--ink); }
+  .sb-toggle button:hover { background: rgba(23,21,18,.06); }
+  .sb-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .sb-toggle .save {
+    font-size: .58rem;
+    letter-spacing: .1em;
+    padding: .15rem .4rem;
+    background: var(--mustard);
+    color: var(--ink);
+    border-radius: 2px;
+  }
+
+  /* ---- Plans ---- */
+  .sb-plans { padding: 4rem 0 2rem; }
+
+  .sb-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+
+  .sb-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    padding: 2.2rem 1.6rem 1.6rem;
+    box-shadow: 8px 8px 0 rgba(23,21,18,.07);
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .sb-plan:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 10px 10px 0 rgba(23,21,18,.11);
+  }
+
+  .sb-plan--featured {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 10px 10px 0 rgba(221,74,33,.3);
+  }
+  .sb-plan--featured:hover { box-shadow: 12px 12px 0 rgba(221,74,33,.4); }
+
+  .sb-flag {
+    position: absolute;
+    top: 0; left: 0;
+    background: var(--mustard);
+    color: var(--ink);
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: .4rem .8rem;
+  }
+
+  .sb-plan-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .sb-plan-desc {
+    font-size: .84rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+    min-height: 2.6em;
+  }
+  .sb-plan--featured .sb-plan-desc { color: rgba(246,241,231,.66); }
+
+  .sb-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: .35rem;
+    padding: .4rem 0 .2rem;
+    border-top: 1px solid var(--line);
+  }
+  .sb-plan--featured .sb-price-row { border-top-color: rgba(246,241,231,.2); }
+
+  .sb-price {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 3.6vw, 2.6rem);
+    line-height: 1;
+    letter-spacing: -.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .sb-per {
+    font-size: .74rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sb-plan--featured .sb-per { color: rgba(246,241,231,.6); }
+
+  .sb-plan-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .55rem;
+    font-size: .88rem;
+    line-height: 1.45;
+  }
+  .sb-plan-list li {
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  .sb-plan-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: .05em;
+    font-size: .7rem;
+    color: var(--rust);
+  }
+  .sb-plan--featured .sb-plan-list li::before { color: var(--mustard); }
+
+  .sb-plan .btn {
+    margin-top: auto;
+    width: 100%;
+  }
+  .sb-plan--featured .btn {
+    background: var(--mustard);
+    border-color: var(--mustard);
+    color: var(--ink);
+  }
+  .sb-plan--featured .btn:hover {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+  }
+
+  .sb-plans-note {
+    margin: 1.4rem 0 0;
+    font-size: .78rem;
+    color: var(--muted);
+    letter-spacing: .02em;
+  }
+
+  /* ---- Signup band ---- */
+  .sb-signup {
+    background: var(--mustard);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding: 3.6rem 0 4rem;
+    margin-top: 2.6rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .sb-signup-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 1rem;
+    margin-bottom: 2.2rem;
+  }
+  .sb-signup-head h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    letter-spacing: -.03em;
+    line-height: 1;
+    margin: 0;
+  }
+  .sb-signup-head p {
+    margin: 0;
+    font-size: .84rem;
+    color: rgba(23,21,18,.7);
+    max-width: 30ch;
+  }
+
+  .sb-form-card {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    box-shadow: 12px 12px 0 rgba(23,21,18,.16);
+    max-width: 720px;
+  }
+  .sb-form-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: .9rem 1.4rem;
+    border-bottom: 1.5px solid var(--ink);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .sb-form-card-head span:last-child { color: var(--rust); }
+
+  .sb-form {
+    padding: 1.6rem 1.4rem 1.8rem;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .sb-field { display: grid; gap: .35rem; }
+  .sb-field label {
+    font-size: .63rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sb-field input,
+  .sb-field select {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    padding: .5rem 0 .55rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--ink);
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .sb-field input::placeholder { color: rgba(23,21,18,.32); font-style: italic; }
+  .sb-field input:focus,
+  .sb-field select:focus { border-bottom-color: var(--rust); }
+  .sb-field select {
+    cursor: pointer;
+    padding-right: 1.6rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23171512' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right .2rem center;
+    background-size: 11px;
+  }
+
+  .sb-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .sb-form-foot {
+    font-size: .72rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: .2rem 0 0;
+  }
+
+  .sb-success {
+    padding: 1.8rem 1.4rem 2rem;
+    outline: none;
+  }
+  .sb-success[hidden] { display: none; }
+  .sb-success h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+    margin: 0 0 .6rem;
+  }
+  .sb-success p {
+    font-size: .95rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 .9rem;
+  }
+  .sb-success strong { color: var(--ink); font-weight: 600; }
+  .sb-success .btn { margin-top: .4rem; }
+
+  /* ---- Reassurance strip ---- */
+  .sb-reassure {
+    padding: 2.8rem 0;
+    border-bottom: 1.5px solid var(--line);
+  }
+  .sb-reassure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem 2rem;
+  }
+  .sb-reassure-item h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -.015em;
+    margin: 0 0 .35rem;
+    display: flex;
+    align-items: baseline;
+    gap: .55rem;
+  }
+  .sb-reassure-item h3::before {
+    content: "✦";
+    color: var(--rust);
+    font-size: .8rem;
+  }
+  .sb-reassure-item p {
+    margin: 0;
+    font-size: .85rem;
+    line-height: 1.5;
+    color: var(--muted);
+    padding-left: 1.35rem;
+  }
+
+  /* ---- FAQ ---- */
+  .sb-faq { padding: 4rem 0; }
+
+  .sb-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .sb-faq-item {
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    transition: background .2s;
+  }
+  .sb-faq-item[open] { background: rgba(232,178,60,.1); }
+  .sb-faq-item summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.05rem 1.2rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    transition: color .2s;
+  }
+  .sb-faq-item summary::-webkit-details-marker { display: none; }
+  .sb-faq-item summary:focus-visible {
+    outline: 2px solid var(--rust);
+    outline-offset: -3px;
+  }
+  .sb-faq-item summary:hover { color: var(--rust); }
+  .sb-faq-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: .76rem;
+    color: var(--rust);
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    min-width: 22px;
+  }
+  .sb-faq-body {
+    padding: 0 1.2rem 1.2rem;
+    font-size: .9rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .sb-faq-body p { margin: 0; }
+
+  /* ---- Final CTA ---- */
+  .sb-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3.4rem 0;
+    border-top: 1.5px solid var(--ink);
+  }
+  .sb-cta-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  .sb-cta h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    letter-spacing: -.03em;
+    line-height: 1.05;
+    margin: 0 0 .5rem;
+  }
+  .sb-cta p {
+    margin: 0;
+    font-size: .92rem;
+    color: rgba(246,241,231,.66);
+    max-width: 46ch;
+  }
+  .sb-cta .btn {
+    background: var(--mustard);
+    border-color: var(--mustard);
+    color: var(--ink);
+  }
+  .sb-cta .btn:hover {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1024px) {
+    .sb-plan-grid { grid-template-columns: 1fr 1fr; }
+    .sb-plan--featured { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 900px) {
+    .sb-hero { padding: 2.6rem 0 2rem; }
+    .sb-plans { padding: 2.6rem 0 1.6rem; }
+    .sb-signup { padding: 2.6rem 0 3rem; }
+    .sb-signup-head { grid-template-columns: 1fr; gap: .8rem; align-items: start; }
+    .sb-reassure-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+    .sb-faq-grid { grid-template-columns: 1fr; }
+    .sb-cta-inner { grid-template-columns: 1fr; gap: 1.4rem; }
+    .sb-form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .sb-plan-grid { grid-template-columns: 1fr; }
+    .sb-plan--featured { grid-column: auto; }
+    .sb-plan { box-shadow: 6px 6px 0 rgba(23,21,18,.07); padding: 1.8rem 1.3rem 1.4rem; }
+    .sb-form-card { box-shadow: 8px 8px 0 rgba(23,21,18,.16); }
+    .sb-form-card-head { padding: .8rem 1.1rem; font-size: .58rem; }
+    .sb-form { padding: 1.3rem 1.1rem 1.4rem; }
+    .sb-toggle button { padding: .6rem .8rem; font-size: .64rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">LINKINK</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">This Week</a>
+      <a href="spotlight.html">Spotlight</a>
+      <a href="artists.html">Artists</a>
+      <a href="about.html">About</a>
+      <a href="subscribe.html" aria-current="page">Subscribe</a>
+    </nav>
+    <a href="subscribe.html" class="btn btn--subscribe">Subscribe</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="sb-hero">
+    <div class="wrap">
+      <span class="sb-eyebrow">Subscribe</span>
+      <h1 class="sb-title">One artist.<br>Every <em>Sunday.</em></h1>
+      <p class="sb-lede">
+        A long-form feature, an eight-page gallery, and a one
+        working illustrator every week. Read it free by email, or take the whole
+        thing in print.
+      </p>
+
+      <div class="sb-toggle" role="group" aria-label="Billing period">
+        <button type="button" data-billing="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-billing="annual" aria-pressed="false">
+          Annual <span class="save">2 months free</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLANS ===== -->
+  <section class="sb-plans">
+    <div class="wrap">
+
+      <div class="sb-plan-grid">
+
+        <!-- Free -->
+        <article class="sb-plan">
+          <h2 class="sb-plan-name">The Sunday Line</h2>
+          <p class="sb-plan-desc">The weekly email. Every feature, free, every Sunday.</p>
+          <div class="sb-price-row">
+            <span class="sb-price" data-monthly="Free" data-annual="Free">Free</span>
+            <span class="sb-per" data-monthly="forever" data-annual="forever">forever</span>
+          </div>
+          <ul class="sb-plan-list">
+            <li>The full feature, every Sunday</li>
+            <li>Gallery and video included</li>
+            <li>Complete archive access</li>
+            <li>No card, no trial</li>
+          </ul>
+          <a href="#signup" class="btn">Get the free email</a>
+        </article>
+
+        <!-- Digital (featured) -->
+        <article class="sb-plan sb-plan--featured">
+          <span class="sb-flag">Most popular</span>
+          <h2 class="sb-plan-name">Digital</h2>
+          <p class="sb-plan-desc">Everything in print, delivered as a downloadable PDF.</p>
+          <div class="sb-price-row">
+            <span class="sb-price" data-monthly="$4" data-annual="$40">$4</span>
+            <span class="sb-per" data-monthly="/ month" data-annual="/ year">/ month</span>
+          </div>
+          <ul class="sb-plan-list">
+            <li>Downloadable PDF of every issue</li>
+            <li>High-resolution gallery plates</li>
+            <li>Full-speed speedpaint videos</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="#signup" class="btn">Choose Digital</a>
+        </article>
+
+        <!-- Print + digital -->
+        <article class="sb-plan">
+          <h2 class="sb-plan-name">Print + Digital</h2>
+          <p class="sb-plan-desc">The magazine, posted. Plus everything in the digital plan.</p>
+          <div class="sb-price-row">
+            <span class="sb-price" data-monthly="$9" data-annual="$90">$9</span>
+            <span class="sb-per" data-monthly="/ month" data-annual="/ year">/ month</span>
+          </div>
+          <ul class="sb-plan-list">
+            <li>Printed issue posted each month</li>
+            <li>Digital edition included</li>
+            <li>Subscriber-only prints twice a year</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="#signup" class="btn">Choose Print</a>
+        </article>
+
+      </div>
+
+      <p class="sb-plans-note">
+        All prices in GBP. Annual plans are billed once a year and save the
+        equivalent of two months. BW postage included; international shipping is
+        calculated at checkout.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ===== SIGNUP FORM ===== -->
+  <section class="sb-signup" id="signup">
+    <div class="wrap">
+
+      <div class="sb-signup-head">
+        <h2>Start your subscription</h2>
+        <p>One form. No account needed. You can change or cancel any time.</p>
+      </div>
+
+      <div class="sb-form-card">
+        <div class="sb-form-card-head">
+          <span>Subscription</span>
+          <span>Secure / No. 01</span>
+        </div>
+
+        <form class="sb-form" id="subForm" novalidate>
+
+          <div class="sb-form-row">
+            <div class="sb-field">
+              <label for="sub-email">Email</label>
+              <input id="sub-email" name="email" type="email" placeholder="you@studio.com" autocomplete="email" required>
+            </div>
+            <div class="sb-field">
+              <label for="sub-name">Name (optional)</label>
+              <input id="sub-name" name="name" type="text" placeholder="Your name" autocomplete="name">
+            </div>
+          </div>
+
+          <div class="sb-form-row">
+            <div class="sb-field">
+              <label for="sub-plan">Plan</label>
+              <select id="sub-plan" name="plan" required>
+                <option value="The Sunday Line (free)">The Sunday Line — Free</option>
+                <option value="Digital — $4 / month" data-billing-option="monthly">Digital — $4 / month</option>
+                <option value="Digital — $40 / year" data-billing-option="annual">Digital — $40 / year</option>
+                <option value="Print + Digital — $9 / month" data-billing-option="monthly">Print + Digital — $9 / month</option>
+                <option value="Print + Digital — 90 / year" data-billing-option="annual">Print + Digital — $90 / year</option>
+              </select>
+            </div>
+            <div class="sb-field">
+              <label for="sub-postcode">Postcode (print only)</label>
+              <input id="sub-postcode" name="postcode" type="text" placeholder="Optional" autocomplete="postal-code">
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Continue</button>
+
+          <p class="sb-form-foot">
+            By subscribing you agree to our terms and privacy policy. We never
+            sell your email, and unsubscribing takes one click.
+          </p>
+        </form>
+
+        <div class="sb-success" id="subSuccess" tabindex="-1" hidden>
+          <h3>You're in.</h3>
+          <p>
+            We've set you up on <strong id="subSuccessPlan">The Sunday Line</strong>.
+            A confirmation is on its way to
+            <strong id="subSuccessEmail">your inbox</strong> — if it doesn't arrive
+            in a few minutes, check spam.
+          </p>
+          <p>First email lands Sunday morning.</p>
+          <a href="index.html" class="btn btn--ghost btn--sm">Back to this week's artist</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== REASSURANCE ===== -->
+  <section class="sb-reassure">
+    <div class="wrap">
+      <div class="sb-reassure-grid">
+
+        <div class="sb-reassure-item">
+          <h3>Cancel in one click</h3>
+          <p>Every email and every invoice has an unsubscribe link. No forms, no phone calls.</p>
+        </div>
+
+        <div class="sb-reassure-item">
+          <h3>No spam, ever</h3>
+          <p>You get the weekly feature and the occasional issue announcement. That's it.</p>
+        </div>
+
+        <div class="sb-reassure-item">
+          <h3>Artists are paid</h3>
+          <p>A share of every subscription goes straight to the featured artists.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sb-faq">
+    <div class="wrap">
+
+      <div class="section-head">
+        <h2><span class="num">?</span> Before you subscribe</h2>
+        <p>The things people ask at the checkout.</p>
+      </div>
+
+      <div class="sb-faq-grid">
+
+        <details class="sb-faq-item">
+          <summary>
+            <span class="sb-faq-n">01</span>
+            <span>Is the free email really free?</span>
+          </summary>
+          <div class="sb-faq-body">
+            <p>Yes. The Sunday Line has the full feature, the gallery and the video, and costs nothing. The paid plans add the downloadable PDF and the printed magazine.</p>
+          </div>
+        </details>
+
+        <details class="sb-faq-item">
+          <summary>
+            <span class="sb-faq-n">02</span>
+            <span>Can I switch plans later?</span>
+          </summary>
+          <div class="sb-faq-body">
+            <p>Any time, from the link at the bottom of any email. Upgrades take effect immediately; downgrades at the end of the current billing period.</p>
+          </div>
+        </details>
+
+        <details class="sb-faq-item">
+          <summary>
+            <span class="sb-faq-n">03</span>
+            <span>Do you ship outside BW?</span>
+          </summary>
+          <div class="sb-faq-body">
+            <p>Yes — worldwide. BW postage is included in the price; international shipping is added at checkout and shown before you pay.</p>
+          </div>
+        </details>
+
+        <details class="sb-faq-item">
+          <summary>
+            <span class="sb-faq-n">04</span>
+            <span>What if I miss an issue?</span>
+          </summary>
+          <div class="sb-faq-body">
+            <p>The full archive stays online and free. If a printed issue goes missing in the post, email us and we'll send another, no charge.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="sb-cta">
+    <div class="wrap sb-cta-inner">
+      <div>
+        <h2>Not ready to pay? Start with the email.</h2>
+        <p>The Sunday Line is free, weekly, and the easiest way to find out whether LINKINK is for you.</p>
+      </div>
+      <a href="#signup" class="btn">Get the free email</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">LINKINK</a>
+        <p>A weekly illustration magazine. One artist, every Sunday.</p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="index.html">This week</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="artists.html">Artists</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Magazine</h4>
+        <ul>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="about.html#apply">Submit your work</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Are.na</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LINKINK. All illustrations © their authors.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- mobile menu ---------- */
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+  });
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = 'Menu';
+    }
+  });
+
+  /* ---------- billing toggle ---------- */
+  (function () {
+    const toggleBtns = Array.from(document.querySelectorAll('.sb-toggle button'));
+    const prices = Array.from(document.querySelectorAll('.sb-price'));
+    const pers = Array.from(document.querySelectorAll('.sb-per'));
+    const planSelect = document.getElementById('sub-plan');
+    if (!toggleBtns.length) return;
+
+    function setBilling(mode) {
+      toggleBtns.forEach(b => {
+        b.setAttribute('aria-pressed', String(b.dataset.billing === mode));
+      });
+
+      prices.forEach(el => {
+        el.textContent = el.dataset[mode] || el.textContent;
+      });
+      pers.forEach(el => {
+        el.textContent = el.dataset[mode] || el.textContent;
+      });
+
+      /* keep the form's plan list in step */
+      if (planSelect) {
+        Array.from(planSelect.options).forEach(opt => {
+          if (opt.dataset.billingOption) {
+            opt.hidden = opt.dataset.billingOption !== mode;
+          }
+        });
+        /* if the current choice is now hidden, fall back to free */
+        const current = planSelect.options[planSelect.selectedIndex];
+        if (current && current.hidden) planSelect.value = planSelect.options[0].value;
+      }
+    }
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => setBilling(btn.dataset.billing));
+    });
+  })();
+
+  /* ---------- subscribe form ---------- */
+  (function () {
+    const form = document.getElementById('subForm');
+    const success = document.getElementById('subSuccess');
+    const successPlan = document.getElementById('subSuccessPlan');
+    const successEmail = document.getElementById('subSuccessEmail');
+    if (!form || !success) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const emailField = form.querySelector('#sub-email');
+      const planField = form.querySelector('#sub-plan');
+      const email = (emailField && emailField.value || '').trim();
+      const plan = (planField && planField.value || '').trim() || 'The Sunday Line';
+
+      if (!emailField.checkValidity()) {
+        emailField.reportValidity();
+        return;
+      }
+
+      form.hidden = true;
+      success.hidden = false;
+      successPlan.textContent = plan;
+      successEmail.textContent = email || 'your inbox';
+
+      success.focus({ preventScroll: true });
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+</script>
+
+</body>
+</html>

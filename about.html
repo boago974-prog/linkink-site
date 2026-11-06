@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — LINKINK</title>
+<meta name="description" content="LINKINK is a weekly illustration magazine. One artist, every Sunday. Here's how it works — and how to apply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ============================================================
+     ABOUT PAGE — editorial masthead style (page-scoped)
+     ============================================================ */
+
+  /* ---- Hero / masthead ---- */
+  .ab-hero {
+    padding: 3.5rem 0 4rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .ab-hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3.5rem;
+    align-items: end;
+  }
+
+  .ab-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    font-size: .71rem;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .ab-eyebrow::before {
+    content: "";
+    width: 34px; height: 1.5px;
+    background: var(--rust);
+  }
+
+  .ab-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: .92;
+    letter-spacing: -.04em;
+    margin: 0 0 1.4rem;
+  }
+  .ab-title em { font-style: italic; color: var(--rust); }
+
+  .ab-lede {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  /* Colophon — magazine masthead */
+  .ab-colophon {
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding: .3rem 0;
+  }
+  .ab-colophon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: .7rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .8rem;
+  }
+  .ab-colophon-row:last-child { border-bottom: none; }
+  .ab-colophon-row span {
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ab-colophon-row strong {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: .95rem;
+    letter-spacing: -.01em;
+  }
+
+  /* ---- Section heads ---- */
+  .ab-section-head {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.5rem;
+    align-items: end;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 1rem;
+    margin-bottom: 2.8rem;
+  }
+  .ab-section-head .ab-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--rust);
+    align-self: center;
+  }
+  .ab-section-head h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    letter-spacing: -.025em;
+    line-height: 1;
+    margin: 0;
+  }
+  .ab-section-head p {
+    margin: 0;
+    font-size: .85rem;
+    color: var(--muted);
+    max-width: 30ch;
+  }
+
+  /* ---- 01 / The idea ---- */
+  .ab-idea { padding: 4.5rem 0; }
+
+  .ab-idea-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .ab-side {
+    position: sticky;
+    top: 6rem;
+    border-top: 1.5px solid var(--ink);
+    padding-top: 1rem;
+  }
+  .ab-side .ab-num {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: .05em;
+    color: var(--rust);
+    margin-bottom: .5rem;
+  }
+  .ab-side h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .ab-idea-copy { max-width: 62ch; }
+
+  .ab-pull {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .ab-pull em { font-style: italic; color: var(--rust); }
+
+  .ab-idea-copy p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 1.2rem;
+  }
+  .ab-sign {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--muted);
+    margin-top: 1.6rem !important;
+  }
+
+  /* ---- Numbers band ---- */
+  .ab-numbers {
+    background: var(--teal);
+    color: var(--paper);
+    padding: 3rem 0;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .ab-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .ab-stat {
+    border-left: 1.5px solid rgba(246,241,231,.24);
+    padding-left: 1.4rem;
+  }
+  .ab-stat:first-child { border-left: none; padding-left: 0; }
+  .ab-stat .v {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    line-height: .9;
+    letter-spacing: -.04em;
+    color: var(--mustard);
+    margin-bottom: .6rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .ab-stat .k {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(246,241,231,.7);
+    line-height: 1.4;
+    max-width: 18ch;
+    display: block;
+  }
+
+  /* ---- 02 / Week cards ---- */
+  .ab-week { padding: 4.5rem 0; }
+
+  .ab-week-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .ab-card {
+    position: relative;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    padding: 2.4rem 1.6rem 1.8rem;
+    box-shadow: 8px 8px 0 rgba(23,21,18,.08);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .ab-card:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 10px 10px 0 rgba(23,21,18,.12);
+  }
+  .ab-card-tab {
+    position: absolute;
+    top: 0; left: 0;
+    background: var(--ink);
+    color: var(--mustard);
+    font-size: .63rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: .4rem .8rem;
+  }
+  .ab-card h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+    margin: 0 0 .6rem;
+  }
+  .ab-card p {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ---- 03 / Apply ---- */
+  .ab-apply {
+    background: var(--mustard);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding: 4rem 0 4.5rem;
+  }
+  .ab-apply .ab-section-head { border-bottom-color: var(--ink); }
+  .ab-apply .ab-section-head p { color: rgba(23,21,18,.7); }
+
+  .ab-apply-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .ab-letter-lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.35;
+    letter-spacing: -.01em;
+    margin: 0 0 2rem;
+    max-width: 44ch;
+  }
+
+  .ab-apply-letter h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 .9rem;
+    padding-top: 1.4rem;
+    border-top: 1.5px solid rgba(23,21,18,.28);
+  }
+  .ab-apply-letter h3:first-of-type { padding-top: 0; border-top: none; }
+
+  .ab-list {
+    list-style: none;
+    margin: 0 0 1.6rem;
+    padding: 0;
+    display: grid;
+    gap: .65rem;
+  }
+  .ab-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: .95rem;
+    line-height: 1.5;
+    color: rgba(23,21,18,.82);
+  }
+  .ab-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .ab-apply-letter p {
+    font-size: .92rem;
+    line-height: 1.6;
+    color: rgba(23,21,18,.75);
+    margin: 0 0 1rem;
+    max-width: 46ch;
+  }
+  .ab-apply-letter p a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+
+  /* Paper application slip */
+  .ab-form-card {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    box-shadow: 12px 12px 0 rgba(23,21,18,.16);
+  }
+  .ab-form-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: .9rem 1.4rem;
+    border-bottom: 1.5px solid var(--ink);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .ab-form-card-head span:last-child { color: var(--rust); }
+
+  .ab-form {
+    padding: 1.6rem 1.4rem 1.8rem;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .ab-field { display: grid; gap: .35rem; }
+  .ab-field label {
+    font-size: .63rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ab-field input,
+  .ab-field select,
+  .ab-field textarea {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    padding: .5rem 0 .55rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--ink);
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .ab-field input::placeholder,
+  .ab-field textarea::placeholder {
+    color: rgba(23,21,18,.32);
+    font-style: italic;
+  }
+  .ab-field input:focus,
+  .ab-field select:focus,
+  .ab-field textarea:focus { border-bottom-color: var(--rust); }
+  .ab-field textarea {
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .ab-field select {
+    cursor: pointer;
+    padding-right: 1.6rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23171512' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right .2rem center;
+    background-size: 11px;
+  }
+
+  .ab-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .ab-form .btn {
+    justify-self: start;
+    margin-top: .6rem;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .ab-form .btn:hover {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--paper);
+  }
+
+  .ab-form-foot {
+    font-family: 'Inter', sans-serif;
+    font-size: .72rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: .2rem 0 0;
+  }
+
+  .ab-success {
+    padding: 1.6rem 1.4rem 1.8rem;
+    outline: none;
+  }
+  .ab-success[hidden] { display: none; }
+  .ab-success h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -.015em;
+    margin: 0 0 .6rem;
+    color: var(--ink);
+  }
+  .ab-success p {
+    font-size: .92rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+  .ab-success strong { color: var(--rust); font-weight: 600; }
+
+  /* ---- 04 / FAQ ---- */
+  .ab-faq { padding: 4.5rem 0; }
+
+  .ab-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .ab-faq-item {
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    transition: background .2s;
+  }
+  .ab-faq-item[open] { background: rgba(232,178,60,.1); }
+
+  .ab-faq-item summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    transition: color .2s;
+  }
+  .ab-faq-item summary::-webkit-details-marker { display: none; }
+  .ab-faq-item summary:focus-visible {
+    outline: 2px solid var(--rust);
+    outline-offset: -3px;
+  }
+  .ab-faq-item summary:hover { color: var(--rust); }
+
+  .ab-faq-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: .78rem;
+    color: var(--rust);
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    min-width: 22px;
+  }
+
+  .ab-faq-body {
+    padding: 0 1.2rem 1.2rem;
+    font-size: .92rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .ab-faq-body p { margin: 0; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1024px) {
+    .ab-hero-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .ab-idea-grid { grid-template-columns: 140px 1fr; gap: 2.5rem; }
+    .ab-numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+    .ab-stat:nth-child(3) { border-left: none; padding-left: 0; }
+    .ab-apply-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ab-faq-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    .ab-hero { padding: 2.4rem 0 3rem; }
+    .ab-hero-grid { grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+    .ab-section-head { grid-template-columns: 40px 1fr; gap: 1rem; }
+    .ab-section-head p { grid-column: 2; }
+
+    .ab-idea-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ab-side { position: static; }
+
+    .ab-week-cards { grid-template-columns: 1fr; gap: 1.2rem; }
+    .ab-week-cards .ab-card { box-shadow: 6px 6px 0 rgba(23,21,18,.08); }
+
+    .ab-form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .ab-hero { padding: 2rem 0 2.6rem; }
+    .ab-numbers-grid { grid-template-columns: 1fr 1fr; }
+    .ab-form-card { box-shadow: 8px 8px 0 rgba(23,21,18,.16); }
+    .ab-form-card-head { padding: .8rem 1.1rem; font-size: .58rem; }
+    .ab-form { padding: 1.3rem 1.1rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">LINKINK</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">This Week</a>
+      <a href="spotlight.html">Spotlight</a>
+      <a href="artists.html">Artists</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="subscribe.html">Subscribe</a>
+    </nav>
+    <a href="subscribe.html" class="btn btn--subscribe">Subscribe</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO / MASTHEAD ===== -->
+  <section class="ab-hero">
+    <div class="wrap">
+      <div class="ab-hero-grid">
+
+        <div class="ab-hero-main">
+          <span class="ab-eyebrow">About LINKINK</span>
+          <h1 class="ab-title">One artist.<br>Every <em>Sunday.</em></h1>
+          <p class="ab-lede">
+            LINKINK is a weekly illustration magazine built around a single idea:
+            give one artist the whole week, and let the work breathe.
+          </p>
+        </div>
+
+        <aside class="ab-colophon" aria-label="Masthead">
+          <div class="ab-colophon-row"><span>Founded</span><strong>Gaborone, 2024</strong></div>
+          <div class="ab-colophon-row"><span>Cadence</span><strong>Every Sunday</strong></div>
+          <div class="ab-colophon-row"><span>Editors</span><strong>Two people, no more</strong></div>
+          <div class="ab-colophon-row"><span>Format</span><strong>One artist, one week</strong></div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 01 / THE IDEA ===== -->
+  <section class="ab-idea">
+    <div class="wrap ab-idea-grid">
+
+      <div class="ab-side">
+        <span class="ab-num">01</span>
+        <h2>The idea</h2>
+      </div>
+
+      <div class="ab-idea-copy">
+        <p class="ab-pull">
+          Most magazines cover a scene. We'd rather <em>sit with one person</em>
+          and find out how the work actually happens.
+        </p>
+        <p>
+          Every Sunday we publish one long-form feature on one working
+          illustrator: a proper interview, a gallery of pages from their
+          sketchbook, and a speedpaint video of the work being made. No
+          round-ups, no "ten illustrators to watch", no digest.
+        </p>
+        <p>
+          We started LINKINK because the most interesting part of illustration
+          is almost never the finished image. It's the eleventh attempt, the page
+          that got abandoned, the pencil that runs out mid-line. That's what we
+          publish — and it's why every artist gets a week rather than a paragraph.
+        </p>
+        <p class="ab-sign">— The LINKINK editors</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== NUMBERS BAND ===== -->
+  <section class="ab-numbers">
+    <div class="wrap ab-numbers-grid">
+      <div class="ab-stat">
+        <span class="v">52</span>
+        <span class="k">Artists a year</span>
+      </div>
+      <div class="ab-stat">
+        <span class="v">01</span>
+        <span class="k">Feature every Sunday</span>
+      </div>
+      <div class="ab-stat">
+        <span class="v">$250</span>
+        <span class="k">Paid per artist</span>
+      </div>
+      <div class="ab-stat">
+        <span class="v">24k</span>
+        <span class="k">Readers on the list</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 / HOW A WEEK WORKS ===== -->
+  <section class="ab-week">
+    <div class="wrap">
+
+      <header class="ab-section-head">
+        <span class="ab-num">02</span>
+        <h2>How a week works</h2>
+        <p>Same shape, every Sunday.</p>
+      </header>
+
+      <div class="ab-week-cards">
+
+        <article class="ab-card">
+          <span class="ab-card-tab">Step 01</span>
+          <h3>One artist gets the whole week</h3>
+          <p>A long-form spotlight, an eight-page gallery, and a speedpaint video — all published on Sunday morning.</p>
+        </article>
+
+        <article class="ab-card">
+          <span class="ab-card-tab">Step 02</span>
+          <h3>Depth over breadth</h3>
+          <p>No lists, no digests, no "rising stars". One proper conversation rather than twenty short ones.</p>
+        </article>
+
+        <article class="ab-card">
+          <span class="ab-card-tab">Step 03</span>
+          <h3>Then it stays up</h3>
+          <p>Every feature joins the archive permanently and stays free to read. Nothing is ever paywalled.</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 03 / APPLY ===== -->
+  <section class="ab-apply" id="apply">
+    <div class="wrap">
+
+      <header class="ab-section-head">
+        <span class="ab-num">03</span>
+        <h2>Apply to be featured</h2>
+        <p>We read every application ourselves.</p>
+      </header>
+
+      <div class="ab-apply-grid">
+
+        <!-- Left: letter -->
+        <div class="ab-apply-letter">
+          <p class="ab-letter-lede">
+            We're always looking for the next artist of the week. No agent,
+            no pitch deck, no follower count — just the work and a bit about how
+            you make it.
+          </p>
+
+          <h3>What we look for</h3>
+          <ul class="ab-list">
+            <li>A practice you can talk about, not just a portfolio</li>
+            <li>Work that shows process — sketchbooks, drafts, failures</li>
+            <li>A voice that holds up over a long interview</li>
+            <li>Illustration in any form: editorial, books, print, motion, zines</li>
+            <li>Artists at any stage — first feature or fiftieth</li>
+          </ul>
+
+          <h3>What to send</h3>
+          <p>
+            The form asks for the basics. If you'd rather email, send the same
+            five things to
+            <a href="mailto:apply@linkink.co.bw">apply@linkink.co.bw</a>
+            and we'll reply the same way.
+          </p>
+          <p>
+            We reply to every application within two weeks, whether or not it's
+            a yes. If it's a no, it isn't a permanent one — we often come back to
+            applications months later.
+          </p>
+        </div>
+
+        <!-- Right: paper application slip -->
+        <div class="ab-form-card">
+          <div class="ab-form-card-head">
+            <span>Application form</span>
+            <span>No. 01 / Apply</span>
+          </div>
+
+          <form class="ab-form" id="applyForm">
+
+            <div class="ab-form-row">
+              <div class="ab-field">
+                <label for="apply-name">Name or handle</label>
+                <input id="apply-name" name="name" type="text" placeholder="biedoesart" autocomplete="name" required>
+              </div>
+              <div class="ab-field">
+                <label for="apply-email">Email</label>
+                <input id="apply-email" name="email" type="email" placeholder="you@studio.com" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="ab-form-row">
+              <div class="ab-field">
+                <label for="apply-portfolio">Portfolio or Instagram</label>
+                <input id="apply-portfolio" name="portfolio" type="url" placeholder="https://" autocomplete="url" required>
+              </div>
+              <div class="ab-field">
+                <label for="apply-discipline">What do you draw?</label>
+                <select id="apply-discipline" name="discipline" required>
+                  <option value="" selected disabled>Choose one…</option>
+                  <option>Editorial illustration</option>
+                  <option>Picture books</option>
+                  <option>Printmaking</option>
+                  <option>Reportage / urban sketching</option>
+                  <option>Character design</option>
+                  <option>Motion / animation</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ab-field">
+              <label for="apply-note">Tell us about one piece you're proud of</label>
+              <textarea id="apply-note" name="note" placeholder="What it is, how it was made, and what went wrong on the way." required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send application</button>
+            <p class="ab-form-foot">
+              By applying you agree to us publishing your work if selected. You
+              keep every right to your images — we license them for the feature
+              only.
+            </p>
+          </form>
+
+          <div class="ab-success" id="applySuccess" tabindex="-1" hidden>
+            <h3>Application received.</h3>
+            <p>
+              Thanks — we've got <strong id="applySuccessName">your work</strong>
+              and we'll read it this week. Expect a reply within two weeks,
+              whichever way it goes.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 / FAQ ===== -->
+  <section class="ab-faq">
+    <div class="wrap">
+
+      <header class="ab-section-head">
+        <span class="ab-num">04</span>
+        <h2>Questions</h2>
+        <p>The things we're asked most.</p>
+      </header>
+
+      <div class="ab-faq-grid">
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">01</span>
+            <span>Do I need an agent or representation?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>No. Over half the artists we've featured applied directly, and a good number had never been interviewed before. If your work is ready, that's the only requirement.</p>
+          </div>
+        </details>
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">02</span>
+            <span>Do you pay?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>Yes. Every featured artist receives a flat fee of $250 for the interview, gallery and video, plus a share of any print sales that come from the feature.</p>
+          </div>
+        </details>
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">03</span>
+            <span>Is it only illustration?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>Mostly — but we've featured printmakers, muralists and motion designers. If it's drawn, it counts. If you're not sure whether your practice fits, apply anyway and let us decide.</p>
+          </div>
+        </details>
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">04</span>
+            <span>How long does a feature take?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>About three weeks from a yes to publication: one long interview, one studio visit (or a video call if you're far away), and a set of images and video from your archive. We do the editing and layout.</p>
+          </div>
+        </details>
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">05</span>
+            <span>Can I apply again?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>Yes, after six months. A number of artists have come back with new work, and we're always glad to see it.</p>
+          </div>
+        </details>
+
+        <details class="ab-faq-item">
+          <summary>
+            <span class="ab-faq-n">06</span>
+            <span>What if I'm not selected?</span>
+          </summary>
+          <div class="ab-faq-body">
+            <p>We keep your application on file and often come back to it later. No rejection is permanent. You're welcome to apply again whenever you have new work to show.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="wrap newsletter-inner">
+      <div>
+        <h2>Never miss a Sunday.</h2>
+        <p>One email each week when the new artist drops. No digest, no noise — just the feature.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="event.preventDefault(); this.reset(); this.querySelector('input').placeholder='Thanks — see you Sunday!';">
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" type="email" placeholder="you@studio.com" required>
+          <button type="submit" class="btn">Notify me</button>
+        </form>
+        <p class="nl-note">Joined by 24,000 illustrators. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">LINKINK</a>
+        <p>A weekly illustration magazine. One artist, every Sunday.</p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="index.html">This week</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="artists.html">Artists</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Magazine</h4>
+        <ul>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="about.html#apply">Submit your work</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Are.na</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LINKINK. All illustrations © their authors.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+  });
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = 'Menu';
+    }
+  });
+
+  (function () {
+    const form = document.getElementById('applyForm');
+    const success = document.getElementById('applySuccess');
+    const successName = document.getElementById('applySuccessName');
+    if (!form || !success) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameField = form.querySelector('#apply-name');
+      const name = (nameField && nameField.value || '').trim();
+
+      form.hidden = true;
+      success.hidden = false;
+      successName.textContent = name || 'your work';
+
+      success.focus({ preventScroll: true });
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+</script>
+
+</body>
+</html>
